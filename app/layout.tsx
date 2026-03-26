@@ -20,8 +20,22 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://brinkco.vercel.app'),
   title: "Get More Customers From Your Website | Nachiket — Brink Co",
   description: "Pune-based web designer helping local businesses get 10-20 new enquiries every week. Free demo first. Delivered in 3-7 days.",
+  openGraph: {
+    title: "Get More Customers From Your Website | Nachiket — Brink Co",
+    description: "Pune-based web designer helping local businesses get 10-20 new enquiries every week. Free demo first. Delivered in 3-7 days.",
+    type: "website",
+    url: "https://brinkco.vercel.app",
+    images: ["/og-image.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get More Customers From Your Website | Nachiket — Brink Co",
+    description: "Pune-based web designer helping local businesses get 10-20 new enquiries every week.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({

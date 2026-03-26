@@ -8,12 +8,16 @@
   --bg3: #161616;
   --lime: #c8f135;
   --white: #f5f2ec;
-  --muted: rgba(245, 242, 236, 0.5);
+  --muted: 245 242 236;
 }
 
 body {
   background-color: var(--bg);
   color: var(--white);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Grain overlay */

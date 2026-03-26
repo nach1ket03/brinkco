@@ -17,7 +17,12 @@ function AnimatedNumber({ value }: { value: number }) {
 
   useEffect(() => {
     if (isInView) {
-      spring.set(value);
+      if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        spring.set(value);
+        spring.jump(value);
+      } else {
+        spring.set(value);
+      }
     }
   }, [isInView, spring, value]);
 

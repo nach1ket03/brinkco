@@ -14,7 +14,7 @@ const config: Config = {
         bg3: "var(--bg3)",
         lime: "var(--lime)",
         offwhite: "var(--white)",
-        muted: "var(--muted)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
       },
       fontFamily: {
         display: ["var(--font-display)"],

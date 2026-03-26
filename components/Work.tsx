@@ -2,63 +2,13 @@
 
 import { workItems } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 function BeforeAfterSlider() {
   const [sliderPosition, setSliderPosition] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const handleDrag = (e: React.MouseEvent | React.TouchEvent | MouseEvent | TouchEvent) => {
-    if (!containerRef.current) return;
-    
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = "touches" in e 
-      ? (e as unknown as TouchEvent).touches[0].clientX - rect.left 
-      : (e as unknown as MouseEvent).clientX - rect.left;
-      
-    const position = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    setSliderPosition(position);
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    let isDragging = false;
-
-    const startDrag = (e: MouseEvent | TouchEvent) => {
-      isDragging = true;
-      handleDrag(e as unknown as MouseEvent | TouchEvent);
-    };
-
-    const stopDrag = () => {
-      isDragging = false;
-    };
-
-    const doDrag = (e: MouseEvent | TouchEvent) => {
-      if (!isDragging) return;
-      handleDrag(e as unknown as MouseEvent | TouchEvent);
-    };
-
-    container.addEventListener('mousedown', startDrag);
-    container.addEventListener('touchstart', startDrag, { passive: false });
-    window.addEventListener('mouseup', stopDrag);
-    window.addEventListener('touchend', stopDrag);
-    window.addEventListener('mousemove', doDrag);
-    window.addEventListener('touchmove', doDrag, { passive: false });
-
-    return () => {
-      container.removeEventListener('mousedown', startDrag);
-      container.removeEventListener('touchstart', startDrag);
-      window.removeEventListener('mouseup', stopDrag);
-      window.removeEventListener('touchend', stopDrag);
-      window.removeEventListener('mousemove', doDrag);
-      window.removeEventListener('touchmove', doDrag);
-    };
-  }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full cursor-ew-resize select-none overflow-hidden group">
+    <div className="relative w-full h-full overflow-hidden group select-none">
       {/* After Image (Background) */}
       <div className="absolute inset-0 bg-lime/10">
         <div className="w-full h-full bg-bg3 flex items-center justify-center text-white/20 font-bold text-2xl lg:text-4xl font-display">NEW DESIGN</div>
@@ -77,7 +27,7 @@ function BeforeAfterSlider() {
         className="absolute top-0 bottom-0 w-1 bg-lime z-10 pointer-events-none"
         style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-lime rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(200,241,53,0.5)] cursor-ew-resize pointer-events-auto">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-lime rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(200,241,53,0.5)]">
           <div className="w-4 h-4 md:w-5 md:h-5 text-bg flex items-center justify-center">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18l6-6-6-6" />
@@ -85,6 +35,18 @@ function BeforeAfterSlider() {
           </div>
         </div>
       </div>
+
+      {/* Invisible Range Input for Native Touch Support */}
+      <input 
+        type="range" 
+        min="0" 
+        max="100" 
+        value={sliderPosition} 
+        onChange={(e) => setSliderPosition(Number(e.target.value))}
+        className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+        style={{ touchAction: 'pan-y' }}
+        aria-label="Drag to compare before and after designs"
+      />
     </div>
   );
 }
