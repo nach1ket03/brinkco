@@ -16,7 +16,7 @@ export default function Footer() {
           <Link href="#pricing" className="hover:text-lime transition-colors">Pricing</Link>
         </div>
         <div className="text-sm text-white/50">
-          © {new Date().getFullYear()} Nachiket. All rights reserved.
+          © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Nachiket. All rights reserved.
         </div>
       </div>
     </footer>

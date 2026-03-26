@@ -8,9 +8,9 @@ export default function ContactCTA() {
     <section className="relative min-h-[90vh] flex flex-col justify-center py-32 overflow-hidden border-t border-white/5">
       {/* Background Giant Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <h1 className="text-[25vw] font-display font-black text-stroke-opacity leading-none">
+        <div aria-hidden="true" className="text-[25vw] font-display font-black text-stroke-opacity leading-none">
           READY?
-        </h1>
+        </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">

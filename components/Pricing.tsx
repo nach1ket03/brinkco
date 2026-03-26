@@ -62,7 +62,7 @@ export default function Pricing() {
               </div>
 
               <a
-                href={`https://wa.me/919561084600?text=Hi%20Nachiket!%20I'm%20interested%20in%20the%20${tier.name}%20Package%20(${tier.price}).`}
+                href={`https://wa.me/919561084600?text=${encodeURIComponent(`Hi Nachiket! I'm interested in the ${tier.name} Package (${tier.price}).`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-4 rounded-xl text-center font-bold text-lg transition-all duration-300 ${

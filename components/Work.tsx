@@ -30,7 +30,7 @@ function BeforeAfterSlider() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-lime rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(200,241,53,0.5)]">
           <div className="w-4 h-4 md:w-5 md:h-5 text-bg flex items-center justify-center">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6" />
+              <path d="M15 18l6-6-6-6M9 6l-6 6 6 6" />
             </svg>
           </div>
         </div>
@@ -44,7 +44,7 @@ function BeforeAfterSlider() {
         value={sliderPosition} 
         onChange={(e) => setSliderPosition(Number(e.target.value))}
         className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
-        style={{ touchAction: 'pan-y' }}
+        style={{ touchAction: 'none' }}
         aria-label="Drag to compare before and after designs"
       />
     </div>
@@ -84,8 +84,10 @@ export default function Work() {
                   <BeforeAfterSlider />
                 ) : (
                   <>
-                    <div className="absolute inset-0 bg-lime/10 opacity-0 group-hover:opacity-100 mix-blend-overlay z-10 transition-opacity duration-500" />
-                    <div className="w-full h-full flex items-center justify-center text-white/10 font-display text-3xl font-bold bg-bg2 group-hover:scale-105 transition-transform duration-700">IMAGE</div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-lime/5 to-white/5 opacity-0 group-hover:opacity-100 mix-blend-overlay z-10 transition-opacity duration-500" />
+                    <div className={`w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-105 ${i % 2 === 0 ? "bg-gradient-to-br from-bg2 to-bg3" : "bg-gradient-to-tr from-bg3 to-[#1a1a1a]"}`}>
+                        <div className="w-1/2 h-1/2 rounded-full bg-white/5 blur-3xl absolute top-1/4 left-1/4 mix-blend-screen" />
+                    </div>
                   </>
                 )}
 

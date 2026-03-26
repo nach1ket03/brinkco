@@ -28,7 +28,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative group block h-full flex items-stretch"
+              className="relative group h-full flex items-stretch"
             >
               {/* Number Background */}
               <div className="absolute -top-10 -right-4 text-8xl md:text-9xl font-display font-black text-white/[0.03] select-none pointer-events-none group-hover:text-lime/5 transition-colors duration-500 z-0">
@@ -44,7 +44,7 @@ export default function Services() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-auto gap-4">
                   <span className="text-lime font-bold text-xl">{service.price}</span>
                   <a
-                    href={`https://wa.me/919561084600?text=Hi%20Nachiket!%20I'm%20interested%20in%20the%20${encodeURIComponent(service.name)}.`}
+                    href={`https://wa.me/919561084600?text=Hi%20Nachiket!%20I%27m%20interested%20in%20the%20${encodeURIComponent(service.name)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-lime group-hover:border-lime transition-all duration-300"

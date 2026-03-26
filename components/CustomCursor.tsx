@@ -21,7 +21,7 @@ export default function CustomCursor() {
 
   useEffect(() => {
     setIsMounted(true);
-    setIsDesktop(window.matchMedia("(min-width: 768px)").matches);
+    setIsDesktop(window.matchMedia("(pointer: fine)").matches);
 
     const updateMousePosition = (e: MouseEvent) => {
       cursorX.set(e.clientX);

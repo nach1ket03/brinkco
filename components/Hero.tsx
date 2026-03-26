@@ -33,9 +33,9 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-20 overflow-hidden">
       {/* Background Giant Text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-        <h1 className="text-[15vw] font-display font-black text-stroke-opacity leading-none whitespace-nowrap">
+        <div aria-hidden="true" className="text-[15vw] font-display font-black text-stroke-opacity leading-none whitespace-nowrap">
           NACHIKET
-        </h1>
+        </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center mt-12 md:mt-0">

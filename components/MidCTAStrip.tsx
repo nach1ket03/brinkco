@@ -24,7 +24,7 @@ export default function MidCTAStrip() {
             Send me a message on WhatsApp. We&apos;ll have a quick 5-minute chat, and I&apos;ll tell you exactly what would work best for your business. No pressure, no sales pitch.
           </p>
           <Link
-            href="https://wa.me/919561084600?text=Hi%20Nachiket!%20I'm%20not%20sure%20which%20package%20I%20need."
+            href="https://wa.me/919561084600?text=Hi%20Nachiket!%20I%27m%20not%20sure%20which%20package%20I%20need."
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-lime text-bg font-bold rounded-full text-lg hover:bg-white transition-all hover:scale-105 duration-300 shadow-xl"
